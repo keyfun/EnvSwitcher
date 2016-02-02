@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+    
+        let duration:Double = 3.0
+        let options:[String] = ["Production", "UAT", "Staging", "Development"]
+        EnvSwitcher.initSwitcher(window, duration: duration, options: options) { (option:String) -> Void in
+            print("onSelected Option = \(option)")
+        }
+        
         return true
     }
 

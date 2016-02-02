@@ -23,6 +23,10 @@ pod 'EnvSwitcher', :git => 'https://github.com/keyfun/EnvSwitcher.git'
 ## How to Use? Initial in AppDelegate as below
 
 ```swift
+import EnvSwitcher
+
+...
+
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
 

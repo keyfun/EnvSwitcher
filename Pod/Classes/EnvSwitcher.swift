@@ -10,16 +10,18 @@ import Foundation
 import UIKit
 
 public class EnvSwitcher:NSObject {
-    
+    static let SAVE_KEY:String = "Keyfun_EnvSwitcher_Key"
     private static var window:UIWindow?
     private static var completion:((option:String) -> Void)?
     private static var options:[String] = []
     private static var isShowed:Bool = false
+    private static var isSave:Bool = false
     
-    static public func initSwitcher(window:UIWindow?, duration:Double, options:[String], completion: ((option:String) -> Void)?) {
+    static public func initSwitcher(window:UIWindow?, duration:Double, options:[String], isSave:Bool, completion: ((option:String) -> Void)?) {
         self.window = window
         self.completion = completion
         self.options = options
+        self.isSave = isSave
         
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressed:")
         longPressRecognizer.minimumPressDuration = duration
@@ -44,6 +46,7 @@ public class EnvSwitcher:NSObject {
         
         for option in options {
             alert.addAction(UIAlertAction(title: option, style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction) -> Void in
+                saveToUserPreferences(option)
                 completion?(option: option)
                 isShowed = false
             }))
@@ -59,4 +62,13 @@ public class EnvSwitcher:NSObject {
         self.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
     }
     
+    static func saveToUserPreferences(value:String) {
+        if(isSave) {
+            NSUserDefaults.standardUserDefaults().setObject(value, forKey: SAVE_KEY)
+        }
+    }
+    
+    static public func getUserPreferences() -> String? {
+        return NSUserDefaults.standardUserDefaults().stringForKey(SAVE_KEY)
+    }
 }

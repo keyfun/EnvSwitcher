@@ -9,22 +9,12 @@
 Pod::Spec.new do |s|
   s.name             = "EnvSwitcher"
   s.version          = "0.1.0"
-  s.summary          = "A short description of EnvSwitcher."
+  s.summary          = "EnvSwitcher."
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
-  s.description      = <<-DESC
-                       DESC
-
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/EnvSwitcher"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/keyfun/EnvSwitcher"
   s.license          = 'MIT'
-  s.author           = { "kana_app" => "forever_loss_@hotmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/EnvSwitcher.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { "keyfun" => "keyfun.hk@gmail.com" }
+  s.source           = { :git => "https://github.com/keyfun/EnvSwitcher.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true

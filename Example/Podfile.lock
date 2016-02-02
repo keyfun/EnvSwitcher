@@ -1,0 +1,14 @@
+PODS:
+  - EnvSwitcher (0.1.0)
+
+DEPENDENCIES:
+  - EnvSwitcher (from `../`)
+
+EXTERNAL SOURCES:
+  EnvSwitcher:
+    :path: ../
+
+SPEC CHECKSUMS:
+  EnvSwitcher: 8059e60a3c9a1ef4cac8962ee08b835a63c97b57
+
+COCOAPODS: 0.39.0

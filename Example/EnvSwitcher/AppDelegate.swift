@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EnvSwitcher
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

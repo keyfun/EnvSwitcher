@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'EnvSwitcher_Example', :exclusive => true do
+  pod 'EnvSwitcher', :path => '../'
+end
+
+target 'EnvSwitcher_Tests', :exclusive => true do
+  pod 'EnvSwitcher', :path => '../'
+
+  
+end

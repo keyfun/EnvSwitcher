@@ -17,7 +17,7 @@ EnvSwitcher is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'EnvSwitcher' :git => 'https://github.com/keyfun/EnvSwitcher.git'
+pod 'EnvSwitcher', :git => 'https://github.com/keyfun/EnvSwitcher.git'
 ```
 
 ## How to Use? Initial in AppDelegate as below

@@ -42,7 +42,14 @@ public class EnvSwitcher:NSObject {
         isShowed = true
         
         // create options from the array
-        let alert = UIAlertController(title: "EnvSwitcher", message: "Select Environment Options", preferredStyle: UIAlertControllerStyle.Alert)
+        var message = ""
+        if(getUserPreferences() != nil) {
+            message = "Selected [\(getUserPreferences()!)]\nPlease Select Environment Options"
+        } else {
+            message = "Please Select Environment Options"
+        }
+        
+        let alert = UIAlertController(title: "EnvSwitcher", message: message, preferredStyle: UIAlertControllerStyle.Alert)
         
         for option in options {
             alert.addAction(UIAlertAction(title: option, style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction) -> Void in

@@ -16,6 +16,8 @@ public class EnvSwitcher:NSObject {
     private static var options:[String] = []
     private static var isShowed:Bool = false
     private static var isSave:Bool = false
+    private static var title:String = ""
+    private static var message:String = ""
     
     static public func initSwitcher(window:UIWindow?, duration:Double, options:[String], isSave:Bool, completion: ((option:String) -> Void)?) {
         self.window = window
@@ -41,16 +43,31 @@ public class EnvSwitcher:NSObject {
         }
         isShowed = true
         
-        // create options from the array
-        var message = ""
-        if(getUserPreferences() != nil) {
-            message = "Selected [\(getUserPreferences()!)]\nPlease Select Environment Options"
+        var tmpTitle:String = ""
+        
+        if(self.title.isEmpty) {
+            let version = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
+            let build = NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as! String
+            //print("version = \(version), build = \(build)")
+            tmpTitle = "EnvSwitcher \n Version = (\(version)) \n Build = \(build)"
         } else {
-            message = "Please Select Environment Options"
+            tmpTitle = self.title
+        }
+    
+        var tmpMessage = ""
+        if(self.message.isEmpty) {
+            if(getUserPreferences() != nil) {
+                tmpMessage = "Selected [\(getUserPreferences()!)]\nPlease Select Environment Options"
+            } else {
+                tmpMessage = "Please Select Environment Options"
+            }
+        } else {
+            tmpMessage = self.message
         }
         
-        let alert = UIAlertController(title: "EnvSwitcher", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: tmpTitle, message: tmpMessage, preferredStyle: UIAlertControllerStyle.Alert)
         
+        // create options from the array
         for option in options {
             alert.addAction(UIAlertAction(title: option, style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction) -> Void in
                 saveToUserPreferences(option)
@@ -77,5 +94,13 @@ public class EnvSwitcher:NSObject {
     
     static public func getUserPreferences() -> String? {
         return NSUserDefaults.standardUserDefaults().stringForKey(SAVE_KEY)
+    }
+    
+    static public func setTitle(str:String) {
+        self.title = str
+    }
+    
+    static public func setMessage(str:String) {
+        self.message = str
     }
 }

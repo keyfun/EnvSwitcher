@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "EnvSwitcher"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "EnvSwitcher."
 
   s.homepage         = "https://github.com/keyfun/EnvSwitcher"

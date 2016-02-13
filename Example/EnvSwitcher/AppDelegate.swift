@@ -30,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = ViewController()
         }
         
+        EnvSwitcher.setTitle("App")
+        EnvSwitcher.setMessage("options")
+        
         return true
     }
 
